@@ -14,7 +14,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - "3307:3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
       timeout: 20s
@@ -27,27 +27,12 @@ services:
     container_name: E-commerce_backend
     restart: always
     volumes:
-      - .:/app
+      - ./:/app
     env_file:
       - .env
     depends_on:
       - db
-    command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput"
-
-  runserver:
-    image: python:3.9
-    container_name: E-commerce_runserver
-    restart: always
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-      - backend
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c "python3 ./manage.py migrate"
 
 volumes:
   data:

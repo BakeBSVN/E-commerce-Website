@@ -1,16 +1,16 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8
+FROM python:3.10.12
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /backend
 
 # Install dependencies
-COPY requirements.txt /app/
+COPY requirements.txt /backend/
 RUN pip install -r requirements.txt
 
 # Copy the project code into the container
-COPY compose/django /app/
+COPY . /backend/
