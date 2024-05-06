@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48cdba5c-a436-40c8-aeca-64f439b4b00e" name="Changes" comment="uBUntu" />
+    <list default="true" id="48cdba5c-a436-40c8-aeca-64f439b4b00e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {}
@@ -56,7 +56,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "<unknown>",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/banhmy/Phong/Project/E-commerce-Website",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -110,7 +110,7 @@
       <workItem from="1715014740999" duration="303000" />
       <workItem from="1715015262972" duration="932000" />
       <workItem from="1715021339462" duration="6531000" />
-      <workItem from="1715028506339" duration="2760000" />
+      <workItem from="1715028506339" duration="3072000" />
     </task>
     <task id="LOCAL-00001" summary="uBUntu">
       <option name="closed" value="true" />
