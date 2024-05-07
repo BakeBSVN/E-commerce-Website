@@ -1,38 +1,29 @@
-# Use postgres/example user/password credentials
-version: '3.9'
+version: '3.5'
 
 services:
-  db:
-    image: mysql:8.0.36
-    container_name: E-commerce-Webdb
-    restart: always
+  app:
+    build: .
     volumes:
-      - data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      - .:/django
     ports:
-      - "3307:3306"
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
-      timeout: 20s
-      retries: 10
-
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: E-commerce_backend
-    restart: always
-    volumes:
-      - ./:/app
-    env_file:
-      - .env
+      - 8000:8000
+    image: app:django
+    container_name: django_container
+    command: python manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
-    command: sh -c "python3 ./manage.py migrate"
-
-volumes:
-  data:
+  db:
+    # image: postgres
+    # volumes:
+    #   - ./data/db:/var/lib/postgresql/data
+    # environment:
+    #   - POSTGRES_DB=postgres
+    #   - POSTGRES_USER=postgres
+    #   - POSTGRES_PASSWORD=postgres
+    # container_name: postgres_db
+    image: mysql:8.0.36
+    environment:
+      MYSQL_DATABASE: 'django-app-db'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    volumes:
+      - ./data/mysql/db:/var/lib/mysql
